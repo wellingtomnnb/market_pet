@@ -1,11 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:market_pet/controler/app_config.dart';
-import 'package:market_pet/models/lojas_fragment.dart';
-import 'package:market_pet/widgets/banner_carrossel.dart';
+import 'package:market_pet/models/fragments.dart';
 import 'package:market_pet/widgets/home_fragments.dart';
 
 class Home extends StatefulWidget {
@@ -130,7 +127,7 @@ class _HomeState extends State<Home> {
           ),
           body: TabBarView(
             children: <Widget>[
-              HomeFragments().fragment(context, LojasFragment(), sizeWidth(context: context), sizeHeight(context: context)),
+              HomeFragments().fragment(context, Fragments().Lojas(), sizeWidth(context: context), sizeHeight(context: context)),
               Center(child: Text("dfgd"),
                 // child: SvgPicture.asset('images/mascote.svg'),
               ),

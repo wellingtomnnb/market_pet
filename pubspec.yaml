@@ -25,7 +25,11 @@ flutter:
     - lib/assets/images/mascote.png
     - lib/assets/images/banner.jpg
     - lib/assets/images/logo.png
-    - lib/assets/images/icons_filters/servicos.png
+    - lib/assets/images/icons_filters/icon_servicos.png
+    - lib/assets/images/icons_filters/icon_acessorios.png
+    - lib/assets/images/icons_filters/icon_medicamento.png
+    - lib/assets/images/icons_filters/icon_consultas.png
+    - lib/assets/images/icons_filters/icon_more.png
 
   fonts:
     - family: Cherry Bomb
@@ -33,12 +37,12 @@ flutter:
         - asset: lib/assets/fonts/CherryBomb-Regular.ttf
     - family: Quicksand
       fonts:
-        - asset: lib\assets\fonts\QuickSand\Quicksand-Bold.ttf
+        - asset: lib/assets/fonts/QuickSand/Quicksand-Bold.ttf
           weight: 900
-        - asset: lib\assets\fonts\QuickSand\Quicksand-Light.ttf
-        - asset: lib\assets\fonts\QuickSand\Quicksand-Medium.ttf
+        - asset: lib/assets/fonts/QuickSand/Quicksand-Light.ttf
+        - asset: lib/assets/fonts/QuickSand/Quicksand-Medium.ttf
           weight: 500
-        - asset: lib\assets\fonts\QuickSand\Quicksand-SemiBold.ttf
+        - asset: lib/assets/fonts/QuickSand/Quicksand-SemiBold.ttf
           weight: 700
 
 #  # To add assets to your application, add an assets section, like this:

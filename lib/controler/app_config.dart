@@ -4,7 +4,7 @@ class AppConfig{
 
   static final stringLogo = 'lib/assets/images/logo.png';
   static final stringMascote = 'lib/assets/images/mascote.png';
-  static final stringIconServicos = 'lib/assets/images/icons_filters/servicos.png';
+  static final stringIconServicos = 'lib/assets/images/icons_filters/icon_servicos.png';
   static final appName = 'Market Pet';
   static final appDescribe = 'A qualquer hora e em qualquer situação, aqui seu animal ganha toda atenção.';
   static final titleSize = 25.0;
