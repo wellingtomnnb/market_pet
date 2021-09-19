@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:market_pet/controler/app_config.dart';
 import 'package:market_pet/models/fragments.dart';
+import 'package:market_pet/pages/start_page.dart';
 import 'package:market_pet/widgets/home_fragments.dart';
 
 class Home extends StatefulWidget {
@@ -120,7 +121,7 @@ class _HomeState extends State<Home> {
                 ListTile(
                     leading: Icon(Icons.power_settings_new),
                     title: Text("Sair"),
-                    onTap: () {}
+                    onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => StartPage()))
                 )
               ],
             ),

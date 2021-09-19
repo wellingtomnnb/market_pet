@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:market_pet/controler/app_config.dart';
 import 'package:market_pet/pages/home.dart';
+import 'package:market_pet/pages/login.dart';
 
 class StartPage extends StatefulWidget {
   @override
@@ -117,7 +118,8 @@ class _StartPageState extends State<StartPage> {
                                   Padding(padding: EdgeInsets.only(top: 15),
                                     child: GestureDetector(
                                       onTap: (){
-                                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Home()));
+                                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
+                                        // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Home()));
                                       },
                                       child: Row(
                                         mainAxisAlignment: MainAxisAlignment.center,
