@@ -108,7 +108,8 @@ class _LoginPageState extends State<LoginPage> {
                     text: 'Continuar com o Google',
                     //mini: true,
                     onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home()))
-                  )
+                  ),
+                  SizedBox(height: 20),
                 ],
               ),
             )

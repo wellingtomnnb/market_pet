@@ -21,25 +21,25 @@ Widget FilterBar(context, fragmentType, sizeWidth){
                   icon: fragmentType.iconFilter2,
                   color: Colors.purpleAccent,
                   sizeWidth: sizeWidth,
-                  nameFilter: fragmentType.nameFilter1
+                  nameFilter: fragmentType.nameFilter2
               ),
               IconFilter(context: context,
                   icon: fragmentType.iconFilter3,
                   color: Colors.green,
                   sizeWidth: sizeWidth,
-                  nameFilter: fragmentType.nameFilter1
+                  nameFilter: fragmentType.nameFilter3
               ),
               IconFilter(context: context,
                   icon: fragmentType.iconFilter4,
                   color: Colors.yellow,
                   sizeWidth: sizeWidth,
-                  nameFilter: fragmentType.nameFilter1
+                  nameFilter: fragmentType.nameFilter4
               ),
               IconFilter(context: context,
                   icon: fragmentType.iconFilter5,
                   color: Colors.pinkAccent,
                   sizeWidth: sizeWidth,
-                  nameFilter: fragmentType.nameFilter1
+                  nameFilter: fragmentType.nameFilter5
               ),
             ]
         )

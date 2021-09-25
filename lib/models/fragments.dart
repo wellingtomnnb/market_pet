@@ -13,17 +13,17 @@ class Fragments{
 
   Clinicas(){
     Fragments frag = Fragments();
-    frag.nameFilter1 = '';
-    frag.nameFilter2 = '';
-    frag.nameFilter3 = '';
-    frag.nameFilter4 = '';
-    frag.nameFilter5 = '';
+    frag.nameFilter1 = 'Ração';
+    frag.nameFilter2 = 'Acessórios';
+    frag.nameFilter3 = 'Snacks';
+    frag.nameFilter4 = 'Brinquedos';
+    frag.nameFilter5 = 'Outros';
 
-    frag.iconFilter1 = '';
-    frag.iconFilter2 = '';
-    frag.iconFilter3 = '';
-    frag.iconFilter4 = '';
-    frag.iconFilter5 = '';
+    frag.iconFilter1 = 'lib/assets/images/icons_filters/icon_servicos.png';
+    frag.iconFilter2 = 'lib/assets/images/icons_filters/icon_snacks.png';
+    frag.iconFilter3 = 'lib/assets/images/icons_filters/icon_medicamento.png';
+    frag.iconFilter4 = 'lib/assets/images/icons_filters/icon_consultas.png';
+    frag.iconFilter5 = 'lib/assets/images/icons_filters/icon_more.png';
 
     return frag;
   }
@@ -36,10 +36,10 @@ class Fragments{
     frag.nameFilter4 = 'Brinquedos';
     frag.nameFilter5 = 'Outros';
 
-    frag.iconFilter1 = 'lib/assets/images/icons_filters/icon_servicos.png';
-    frag.iconFilter2 = 'lib/assets/images/icons_filters/icon_acessorios.png';
-    frag.iconFilter3 = 'lib/assets/images/icons_filters/icon_medicamento.png';
-    frag.iconFilter4 = 'lib/assets/images/icons_filters/icon_consultas.png';
+    frag.iconFilter1 = 'lib/assets/images/icons_filters/icon_racao.png';
+    frag.iconFilter2 = 'lib/assets/images/icons_filters/icon_snacks.png';
+    frag.iconFilter3 = 'lib/assets/images/icons_filters/icon_acessorios.png';
+    frag.iconFilter4 = 'lib/assets/images/icons_filters/icon_brinquedos.png';
     frag.iconFilter5 = 'lib/assets/images/icons_filters/icon_more.png';
 
     return frag;

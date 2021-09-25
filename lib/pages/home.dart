@@ -129,9 +129,7 @@ class _HomeState extends State<Home> {
           body: TabBarView(
             children: <Widget>[
               HomeFragments().fragment(context, Fragments().Lojas(), sizeWidth(context: context), sizeHeight(context: context)),
-              Center(child: Text("dfgd"),
-                // child: SvgPicture.asset('images/mascote.svg'),
-              ),
+              HomeFragments().fragment(context, Fragments().Clinicas(), sizeWidth(context: context), sizeHeight(context: context)),
             ],
           ),
       )
