@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget IconFilter({context, String icon, Color color, sizeWidth, String nameFilter}){
+Widget IconFilter({context, required String icon, required Color color, sizeWidth, required String nameFilter}){
   return Padding(padding: EdgeInsets.all(7),
       child: Column(children: [
         Stack(
@@ -22,7 +22,7 @@ Widget IconFilter({context, String icon, Color color, sizeWidth, String nameFilt
               )
             ]
         ),
-        Text(nameFilter)
+        Text(nameFilter, style: TextStyle(fontSize: 11, fontFamily: "Quicksand", fontWeight: FontWeight.w600))
       ],
       )
   );

@@ -1,5 +1,5 @@
 class Loja{
-  String name, describe, reputation, logoUrl, img;
+  String name, describe, reputation, logoUrl;
 
-  Loja({this.name, this.describe, this.reputation, this.logoUrl, this.img});
+  Loja({required this.name, required this.describe, required this.reputation, required this.logoUrl});
 }

@@ -128,8 +128,8 @@ class _HomeState extends State<Home> {
           ),
           body: TabBarView(
             children: <Widget>[
-              HomeFragments().fragment(context, Fragments().Lojas(), sizeWidth(context: context), sizeHeight(context: context)),
-              HomeFragments().fragment(context, Fragments().Clinicas(), sizeWidth(context: context), sizeHeight(context: context)),
+              HomeFragments(context, Fragments().Lojas(), sizeWidth(context: context), sizeHeight(context: context)),
+              HomeFragments(context, Fragments().Clinicas(), sizeWidth(context: context), sizeHeight(context: context)),
             ],
           ),
       )

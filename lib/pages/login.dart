@@ -60,9 +60,6 @@ class _LoginPageState extends State<LoginPage> {
                               contentPadding: EdgeInsets.all(5.0),
                               labelText: 'Email'
                           ),
-                          validator: (String value) {
-                            return (value != null && value.contains('@')) ? 'Do not use the @ char.' : null;
-                          },
                         ),
                         SizedBox(height: 20),
                         TextFormField(obscureText: true,
@@ -72,9 +69,6 @@ class _LoginPageState extends State<LoginPage> {
                             labelText: 'Senha',
 
                           ),
-                          validator: (String value) {
-                            return (value != null && value.contains('@')) ? 'Do not use the @ char.' : null;
-                          },
                         ),
                       ],
                     ),
@@ -86,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                         color: AppConfig.azulBtEntrar,
                         borderRadius: BorderRadius.circular(15)),
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 20),
+                      style: ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 20, fontFamily: "Quicksand", fontWeight: FontWeight.w600),
                           elevation: 0, minimumSize: Size.fromRadius(25), primary: AppConfig.azulBtEntrar, onSurface: AppConfig.azulBtEntrar
                       ),
                       onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home())),

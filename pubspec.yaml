@@ -6,15 +6,16 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cached_network_image: ^3.1.0
+  cached_network_image: ^3.1.0 #pegar imagens da internet
   cupertino_icons: ^1.0.2
   smooth_page_indicator: ^1.0.0+2
-  flutter_signin_button: ^2.0.0
+  flutter_signin_button: ^2.0.0 #modelos de botões de login
+  scrollable_list_tabview: ^0.1.6 #Lista interativa com tabs
 
 dev_dependencies:
   flutter_test:
