@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:market_pet/controler/app_config.dart';
+import 'package:scrollable_list_tabview/scrollable_list_tabview.dart';
+
 
 class LojaHome extends StatefulWidget {
   String nomeLoja = "PetTop";
@@ -19,33 +21,59 @@ class _LojaHomeState extends State<LojaHome> {
   sizeHeight(context, {percentSize = 0}) => MediaQuery.of(context).size.height * (percentSize > 0 ? percentSize/100 : 1);
 
   var isFavorite = false;
+
+  initState(){
+    ThemeData(cardTheme: CardTheme(color: Colors.cyanAccent));
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      backgroundColor: AppConfig.vermelhoIcone,
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: AppConfig.cinzaTexto),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: Text(widget.nomeLoja, style: TextStyle(color: AppConfig.cinzaTexto)),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.share, color: Colors.grey),
-            tooltip: 'Compartilhar',
-            onPressed: () {},
+      backgroundColor: Colors.white,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(35.0),
+        child: AppBar(
+          iconTheme: IconThemeData(color: AppConfig.cinzaTexto),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          leading: IconButton(
+            splashRadius: 18,
+            icon: const Icon(Icons.arrow_back, color: Colors.grey, size: 23),
+            tooltip: 'Voltar',
+            onPressed: () => Navigator.of(context).pop()
           ),
-        ],
+          actions: [
+            IconButton(
+              splashRadius: 18,
+              icon: const Icon(Icons.share, color: Colors.grey, size: 23),
+              tooltip: 'Compartilhar',
+              onPressed: () {},
+            ),
+          ],
+        ),
       ),
       body: Container(
-        child: ShopHeader(nome: 'jk'),
-      ),
+        color: AppConfig.cinzaBkg,
+        child: Column(
+          children: [
+            ShopHeader(),
+            SizedBox(height: 5),
+            Expanded(child: Stack(
+                children: [
+                  Container(color: Colors.white, height: sizeHeight(context)),
+                  Expanded(child: listas())
+                ]
+            ))
+          ],
+        ),
+      )
     );
   }
 
-  Widget ShopHeader({required nome}){
+  Widget ShopHeader({nome}){
       return Container(
-        height: sizeHeight(context, percentSize: 20) > 150? 150 : sizeHeight(context, percentSize: 20),
+        height: sizeHeight(context, percentSize: 13) > 120? 120 : sizeHeight(context, percentSize: 13),
         width: sizeWidth(context),
         decoration: BoxDecoration(
             color: Colors.white,
@@ -55,34 +83,32 @@ class _LojaHomeState extends State<LojaHome> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    widget.logoUrl == '' ?
-                    Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Container(
-                          width: 70, height: 70,
-                          decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.green),
-                        )
+                widget.logoUrl == '' ?
+                Padding(
+                    padding: EdgeInsets.only(left: 15, bottom: 10),
+                    child: Container(
+                      width: 60, height: 60,
+                      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.green),
                     )
-                        : Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Container(
-                            clipBehavior: Clip.antiAlias,
-                            width: 70, height: 70,
-                            decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.green),
-                            //https://s3-sa-east-1.amazonaws.com/projetos-artes/fullsize%2F2017%2F03%2F31%2F15%2FLogo-e-Cartao-de-Visita-207221_385802_154006485_1428184305.jpg
-                            child: Image.network(widget.logoUrl)
-                        )
-                    ),
-                    Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(widget.nomeLoja, style: TextStyle(fontSize: AppConfig.titleSize - 3, fontFamily: "Quicksand", fontWeight: FontWeight.w600),),
-                          Text(widget.descricaoLoja, style: TextStyle(fontSize: AppConfig.subTitleSize, fontFamily: "Quicksand", fontWeight: FontWeight.w600))
-                        ]
-                    ),
-                  ],
+                )
+                : Padding(
+                    padding: EdgeInsets.only(left: 15, bottom: 10),
+                    child: Container(
+                        clipBehavior: Clip.antiAlias,
+                        width: 60, height: 60,
+                        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.green),
+                        //https://s3-sa-east-1.amazonaws.com/projetos-artes/fullsize%2F2017%2F03%2F31%2F15%2FLogo-e-Cartao-de-Visita-207221_385802_154006485_1428184305.jpg
+                        child: Image.network(widget.logoUrl)
+                    )
+                ),
+                Padding(padding: EdgeInsets.only(bottom: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(widget.nomeLoja, style: TextStyle(fontSize: AppConfig.titleSize - 3, fontFamily: "Quicksand", fontWeight: FontWeight.w600),),
+                      Text(widget.descricaoLoja, style: TextStyle(fontSize: AppConfig.subTitleSize, fontFamily: "Quicksand", fontWeight: FontWeight.w600))
+                    ]
+                )
                 ),
                 IconButton(
                   icon: Icon(isFavorite? Icons.favorite :  Icons.favorite_border, color: AppConfig.vermelhoIcone),
@@ -122,5 +148,124 @@ class _LojaHomeState extends State<LojaHome> {
         ),
 
       );
+  }
+
+  Widget listas(){
+    return ScrollableListTabView(
+      tabHeight: 35,
+      bodyAnimationDuration: const Duration(milliseconds: 150),
+      tabAnimationCurve: Curves.easeOut,
+      tabAnimationDuration: const Duration(milliseconds: 200),
+      tabs: [
+        ScrollableListTab(
+            tab: ListTab(
+              activeBackgroundColor: AppConfig.vermelhoIcone,
+              label: Text('Ração'),
+            ),
+            body: ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: 10,
+              itemBuilder: (_, index) => ListTile(
+                leading: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: Colors.grey),
+                  alignment: Alignment.center,
+                  child: Text(index.toString()),
+                ),
+                title: Text('List element $index'),
+              ),
+            )),
+        ScrollableListTab(
+            tab: ListTab(
+                activeBackgroundColor: AppConfig.vermelhoIcone,
+                label: Text('Acessórios')
+            ),
+            body: GridView.builder(
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2),
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: 10,
+              itemBuilder: (_, index) => Card(
+                child: Center(child: Text('Card element $index')),
+              ),
+            )),
+        ScrollableListTab(
+            tab: ListTab(
+                activeBackgroundColor: AppConfig.vermelhoIcone,
+                label: Text('Snacks'),
+                showIconOnList: true),
+            body: GridView.builder(
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2),
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: 10,
+              itemBuilder: (_, index) => Card(
+                child: Center(child: Text('Card element $index')),
+              ),
+            )),
+        ScrollableListTab(
+            tab: ListTab(
+                activeBackgroundColor: AppConfig.vermelhoIcone,
+                label: Text('Fantasias')
+            ),
+            body: ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: 10,
+              itemBuilder: (_, index) => ListTile(
+                leading: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: Colors.grey),
+                  alignment: Alignment.center,
+                  child: Text(index.toString()),
+                ),
+                title: Text('List element $index'),
+              ),
+            )),
+        ScrollableListTab(
+            tab: ListTab(
+                activeBackgroundColor: AppConfig.vermelhoIcone,
+                label: Text('Brinquedos')
+            ),
+            body: ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: 10,
+              itemBuilder: (_, index) => ListTile(
+                leading: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: Colors.grey),
+                  alignment: Alignment.center,
+                  child: Text(index.toString()),
+                ),
+                title: Text('List element $index'),
+              ),
+            )),
+        ScrollableListTab(
+            tab: ListTab(
+                activeBackgroundColor: AppConfig.vermelhoIcone,
+                label: Text('Vitaminas')
+            ),
+            body: GridView.builder(
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2),
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: 10,
+              itemBuilder: (_, index) => Card(
+                child: Center(child: Text('Card element $index')),
+              ),
+            )),
+      ],
+    );
   }
 }
