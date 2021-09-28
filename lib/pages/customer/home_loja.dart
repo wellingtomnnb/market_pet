@@ -62,7 +62,7 @@ class _LojaHomeState extends State<LojaHome> {
             Expanded(child: Stack(
                 children: [
                   Container(color: Colors.white, height: sizeHeight(context)),
-                  Expanded(child: listas())
+                  listas()
                 ]
             ))
           ],
@@ -73,7 +73,7 @@ class _LojaHomeState extends State<LojaHome> {
 
   Widget ShopHeader({nome}){
       return Container(
-        height: sizeHeight(context, percentSize: 13) > 120? 120 : sizeHeight(context, percentSize: 13),
+        height: sizeHeight(context, percentSize: 17) > 100? 100 : sizeHeight(context, percentSize: 17),
         width: sizeWidth(context),
         decoration: BoxDecoration(
             color: Colors.white,
@@ -121,28 +121,28 @@ class _LojaHomeState extends State<LojaHome> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(left: 30, right: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        alignment: Alignment.bottomCenter,
-                        height: 17,
-                        child: Image.asset('lib/assets/images/icon_whatsapp.png'),
-                      ),
-                      Text('27 997232-1485', style: TextStyle(color: AppConfig.cinzaTexto, fontFamily: "Quicksand", fontWeight: FontWeight.w600))
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.star, size: 17, color: Colors.amber,),
-                      Text('3.8', style: TextStyle(color: Colors.amber, fontFamily: "Quicksand", fontWeight: FontWeight.w600))
-                    ],
-                  ),
-                ],
-              )
+                padding: EdgeInsets.only(left: 30, right: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          alignment: Alignment.bottomCenter,
+                          height: 17,
+                          child: Image.asset('lib/assets/images/icon_whatsapp.png'),
+                        ),
+                        Text('27 997232-1485', style: TextStyle(color: AppConfig.cinzaTexto, fontFamily: "Quicksand", fontWeight: FontWeight.w600))
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.star, size: 17, color: Colors.amber,),
+                        Text('3.8', style: TextStyle(color: Colors.amber, fontFamily: "Quicksand", fontWeight: FontWeight.w600))
+                      ],
+                    ),
+                  ],
+                )
             )
           ],
         ),
