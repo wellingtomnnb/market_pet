@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:market_pet/controler/app_config.dart';
 import 'package:scrollable_list_tabview/scrollable_list_tabview.dart';
@@ -26,6 +27,7 @@ class _LojaHomeState extends State<LojaHome> {
     ThemeData(cardTheme: CardTheme(color: Colors.cyanAccent));
   }
 
+
   @override
   Widget build(BuildContext context) {
 
@@ -36,6 +38,9 @@ class _LojaHomeState extends State<LojaHome> {
         child: AppBar(
           iconTheme: IconThemeData(color: AppConfig.cinzaTexto),
           backgroundColor: Colors.white,
+          backwardsCompatibility: false,
+          brightness: Brightness.dark,
+          systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.grey[50]),
           elevation: 0,
           leading: IconButton(
             splashRadius: 18,
@@ -151,12 +156,60 @@ class _LojaHomeState extends State<LojaHome> {
   }
 
   Widget listas(){
-    return ScrollableListTabView(
+    return Container(color: Colors.red,child: ScrollableListTabView(
       tabHeight: 35,
       bodyAnimationDuration: const Duration(milliseconds: 150),
       tabAnimationCurve: Curves.easeOut,
       tabAnimationDuration: const Duration(milliseconds: 200),
       tabs: [
+        ScrollableListTab(
+            tab: ListTab(
+                activeBackgroundColor: AppConfig.vermelhoIcone,
+                label: Text('Snacks'),
+                showIconOnList: true),
+            body: ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: 10,
+              itemBuilder: (_, index) => GestureDetector(
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => LojaHome())),
+                    child: Card(
+                    elevation: 0,
+                    color: Colors.white,
+                    child: Row(
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Container(
+                              width: 50, height: 50,
+                              decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.green),
+                            )
+                        ),
+                        Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('name', style: TextStyle(fontSize: 16, fontFamily: "Quicksand", fontWeight: FontWeight.w600),),
+                              Text('describe', style: TextStyle(fontSize: 11, fontFamily: "Quicksand", fontWeight: FontWeight.w600))
+                            ]
+                        ),
+                        if('reputation'.isNotEmpty) Expanded(
+                            child: Padding(
+                                padding: EdgeInsets.only(right: 10),
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Icon(Icons.star, size: 17, color: Colors.amber,),
+                                      Text('5.0', style: TextStyle(color: Colors.amber, fontFamily: "Quicksand", fontWeight: FontWeight.w600),)
+                                    ]
+                                )
+                            )
+                        )
+                      ],
+                    )
+                )
+                )
+              )
+        ),
         ScrollableListTab(
             tab: ListTab(
               activeBackgroundColor: AppConfig.vermelhoIcone,
@@ -183,21 +236,6 @@ class _LojaHomeState extends State<LojaHome> {
                 activeBackgroundColor: AppConfig.vermelhoIcone,
                 label: Text('Acessórios')
             ),
-            body: GridView.builder(
-              shrinkWrap: true,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: 10,
-              itemBuilder: (_, index) => Card(
-                child: Center(child: Text('Card element $index')),
-              ),
-            )),
-        ScrollableListTab(
-            tab: ListTab(
-                activeBackgroundColor: AppConfig.vermelhoIcone,
-                label: Text('Snacks'),
-                showIconOnList: true),
             body: GridView.builder(
               shrinkWrap: true,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -266,6 +304,6 @@ class _LojaHomeState extends State<LojaHome> {
               ),
             )),
       ],
-    );
+    ));
   }
 }
