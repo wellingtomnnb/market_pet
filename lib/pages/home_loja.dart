@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:market_pet/controler/app_config.dart';
 import 'package:market_pet/pages/home.dart';
+import 'package:market_pet/pages/product.dart';
 import 'package:market_pet/widgets/card_produto.dart';
 import 'package:scrollable_list_tabview/scrollable_list_tabview.dart';
 
@@ -180,7 +181,7 @@ class _LojaHomeState extends State<LojaHome> {
                     activeBackgroundColor: AppConfig.vermelhoIcone,
                     label: Text('Snacks', style: TextStyle(fontSize: 16, fontFamily: "Quicksand", fontWeight: FontWeight.w500)),
                     showIconOnList: true),
-                body: ListView.separated(
+                body: ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: 10,
@@ -188,7 +189,6 @@ class _LojaHomeState extends State<LojaHome> {
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home())),
                         child: CardProduto()
                     ),
-                  separatorBuilder: (context, index) =>  Divider()
                 )
             ),
             ScrollableListTab(
@@ -196,75 +196,70 @@ class _LojaHomeState extends State<LojaHome> {
                   activeBackgroundColor: AppConfig.vermelhoIcone,
                   label: Text('Ração', style: TextStyle(fontSize: 16, fontFamily: "Quicksand", fontWeight: FontWeight.w500)),
                 ),
-                body: ListView.separated(
+                body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home())),
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Product())),
                         child: CardProduto()
                     ),
-                    separatorBuilder: (context, index) =>  Divider()
                 )),
             ScrollableListTab(
                 tab: ListTab(
                     activeBackgroundColor: AppConfig.vermelhoIcone,
                     label: Text('Acessórios', style: TextStyle(fontSize: 16, fontFamily: "Quicksand", fontWeight: FontWeight.w500))
                 ),
-                body: ListView.separated(
+                body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home())),
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Product())),
                         child: CardProduto()
                     ),
-                    separatorBuilder: (context, index) =>  Divider()
                 )),
             ScrollableListTab(
                 tab: ListTab(
                     activeBackgroundColor: AppConfig.vermelhoIcone,
                     label: Text('Fantasias', style: TextStyle(fontSize: 16, fontFamily: "Quicksand", fontWeight: FontWeight.w500))
                 ),
-                body: ListView.separated(
+                body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home())),
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Product())),
                         child: CardProduto()
                     ),
-                    separatorBuilder: (context, index) =>  Divider()
                 )),
             ScrollableListTab(
                 tab: ListTab(
                     activeBackgroundColor: AppConfig.vermelhoIcone,
                     label: Text('Brinquedos', style: TextStyle(fontSize: 16, fontFamily: "Quicksand", fontWeight: FontWeight.w500))
                 ),
-                body: ListView.separated(
+                body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home())),
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Product())),
                         child: CardProduto()
                     ),
-                    separatorBuilder: (context, index) =>  Divider()
                 )),
             ScrollableListTab(
                 tab: ListTab(
                     activeBackgroundColor: AppConfig.vermelhoIcone,
                     label: Text('Vitaminas', style: TextStyle(fontSize: 16, fontFamily: "Quicksand", fontWeight: FontWeight.w500))
                 ),
-                body: ListView.separated(
+                body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home())),
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Product())),
                         child: CardProduto()
                     ),
-                    separatorBuilder: (context, index) =>  Divider()
                 )),
           ],
         )

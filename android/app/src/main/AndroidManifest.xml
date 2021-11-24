@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.market_pet">
    <application
-        android:label="market_pet"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Market Pet"
+        android:icon="@mipmap/market_pet_logo">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

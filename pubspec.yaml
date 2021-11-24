@@ -29,6 +29,7 @@ flutter:
     - lib/assets/images/icon_shop_profile.png
     - lib/assets/images/banner.jpg
     - lib/assets/images/logo.png
+    - lib/assets/images/logo_white.jpeg
     - lib/assets/images/icon_whatsapp.png
     - lib/assets/images/icons_filters/icon_servicos.png
     - lib/assets/images/icons_filters/icon_acessorios.png

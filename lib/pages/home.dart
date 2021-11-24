@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
                   controller: searchController,
                   autofocus: false,
                   decoration: InputDecoration(
-                    hintText: 'Buscar na PetStore',
+                    hintText: 'Buscar no Market Pet',
                     fillColor: Colors.white, filled: true,
                     contentPadding: EdgeInsets.all(5.0),
                     prefixIcon:  IconButton(
@@ -88,7 +88,7 @@ class _HomeState extends State<Home> {
             child: ListView(
               children: <Widget> [
                 Container(
-                  color: Colors.red,
+                  color: AppConfig.vermelhoIcone,
                   child: Padding(padding: EdgeInsets.only(left: 10, top: 25, bottom: 25),
                     child:  Row(
                         children: [

@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:market_pet/controler/app_config.dart';
 
 Widget CardProduto({String title = 'Sem Nome', double price = 0.0, String logoUrl = ''}) {
   return Card(
@@ -18,7 +15,6 @@ Widget CardProduto({String title = 'Sem Nome', double price = 0.0, String logoUr
                     },
                     errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) => Image.asset('lib/assets/images/icon_product.png', fit: BoxFit.cover)
                 ),
-                // child: logoUrl.isNotEmpty ? Image.network(logoUrl) : Image.asset('lib/assets/images/icon_product.png', fit: BoxFit.cover)
                 width: 80, height: 80,
               )
           ),
