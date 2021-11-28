@@ -16,6 +16,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   flutter_signin_button: ^2.0.0 #modelos de botões de login
   scrollable_list_tabview: ^0.1.6 #Lista interativa com tabs
+  badges: ^2.0.1 #icones com contador
 
 dev_dependencies:
   flutter_test:

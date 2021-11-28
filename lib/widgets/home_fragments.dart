@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:market_pet/controler/app_config.dart';
 import 'package:market_pet/models/Loja.dart';
 import 'package:market_pet/models/fragments.dart';
-import 'file:///C:/Users/Wellington/AndroidStudioProjects/market_pet/lib/pages/home_loja.dart';
+import 'package:market_pet/pages/home_loja.dart';
 import 'package:market_pet/widgets/banner_carrossel.dart';
 import 'package:market_pet/widgets/filter_bar.dart';
 import 'package:market_pet/widgets/icon_filter.dart';

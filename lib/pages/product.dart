@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:market_pet/controler/app_config.dart';
+import 'package:market_pet/pages/home_loja.dart';
 
 class Product extends StatefulWidget {
   @override
@@ -17,10 +18,10 @@ class _ProductState extends State<Product> {
   ': \n- Atóxicos; \n- Vitaminas,\n- Minerais,\n-Rico em Carboidrato e Proteina B3 ';
 
   var price = 58.81;
-  int _n = 1;
+  int _n = 0;
   void minus() {
     setState(() {
-      if (_n != 1)
+      if (_n != 0)
         _n--;
     });
   }
@@ -46,7 +47,7 @@ class _ProductState extends State<Product> {
               splashRadius: 18,
               icon: Icon(Icons.arrow_back, color: Colors.grey, size: 25),
               tooltip: 'Voltar',
-              onPressed: () => Navigator.of(context).pop()
+              onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LojaHome(carrinhoCount: _n)))
           ),
           actions: [
             IconButton(
@@ -156,7 +157,7 @@ class _ProductState extends State<Product> {
                             iconSize: 24*1.3,
                             icon: Icon(Icons.add_shopping_cart, color: AppConfig.azulBtEntrar),
                             tooltip: 'Adicionar ao Carrinho',
-                            onPressed: () => Navigator.of(context).pop()
+                            onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LojaHome(carrinhoCount: _n)))
                           ),
 
                         ]

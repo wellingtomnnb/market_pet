@@ -1,19 +1,19 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:market_pet/controler/app_config.dart';
-import 'package:market_pet/pages/home.dart';
 import 'package:market_pet/pages/product.dart';
 import 'package:market_pet/widgets/card_produto.dart';
 import 'package:scrollable_list_tabview/scrollable_list_tabview.dart';
 
 
 class LojaHome extends StatefulWidget {
-  LojaHome({this.nomeLoja = "PetTop", this.descricaoLoja = "Banho, Tosa e Acessórios", this. logoUrl = '', this.contato = '-'});
+  LojaHome({this.carrinhoCount = 0, this.nomeLoja = "PetTop", this.descricaoLoja = "Banho, Tosa e Acessórios", this. logoUrl = '', this.contato = '-'});
   String nomeLoja, descricaoLoja, logoUrl, contato = '-';
-
+  int carrinhoCount;
   @override
   _LojaHomeState createState() => _LojaHomeState();
 }
@@ -68,9 +68,26 @@ class _LojaHomeState extends State<LojaHome> {
             Expanded(child: Stack(
                 children: [
                   Container(color: Colors.white, height: sizeHeight(context)),
-                  listas()
+                  listas(),
                 ]
-            ))
+            )),
+            if(widget.carrinhoCount > 0) Container(color: AppConfig.vermelhoIcone, height: sizeHeight(context,percentSize: 7),
+              child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                Badge(
+                  position: BadgePosition.topEnd(top: -2, end: 0),
+                  badgeContent: Text('${widget.carrinhoCount}', style: TextStyle(color: Colors.white,fontFamily: "Quicksand", fontWeight: FontWeight.w600)),
+                  child: IconButton(
+                    splashRadius: 18,
+                    icon: Icon(Icons.shopping_cart_outlined, color: Colors.white, size: 23),
+                    tooltip: 'Carrinho',
+                    onPressed: () {},
+                  )
+                ),
+
+                Text('Ver Carrinho', style: TextStyle(color: Colors.white,fontFamily: "Quicksand", fontWeight: FontWeight.w600)),
+                Text('77,01', style: TextStyle(color: Colors.white,fontFamily: "Quicksand", fontWeight: FontWeight.w600)),
+              ],),
+            )
           ],
         ),
       )
@@ -186,7 +203,7 @@ class _LojaHomeState extends State<LojaHome> {
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: 10,
                   itemBuilder: (_, index) => GestureDetector(
-                    onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home())),
+                    onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
                         child: CardProduto()
                     ),
                 )
@@ -201,7 +218,7 @@ class _LojaHomeState extends State<LojaHome> {
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Product())),
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
                         child: CardProduto()
                     ),
                 )),
@@ -215,7 +232,7 @@ class _LojaHomeState extends State<LojaHome> {
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Product())),
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
                         child: CardProduto()
                     ),
                 )),
@@ -229,7 +246,7 @@ class _LojaHomeState extends State<LojaHome> {
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Product())),
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
                         child: CardProduto()
                     ),
                 )),
@@ -243,7 +260,7 @@ class _LojaHomeState extends State<LojaHome> {
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Product())),
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
                         child: CardProduto()
                     ),
                 )),
@@ -257,7 +274,7 @@ class _LojaHomeState extends State<LojaHome> {
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 10,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Product())),
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
                         child: CardProduto()
                     ),
                 )),
