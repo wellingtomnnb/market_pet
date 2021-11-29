@@ -5,15 +5,19 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:market_pet/controler/app_config.dart';
-import 'package:market_pet/pages/product.dart';
+import 'package:market_pet/controler/controller_carrinho.dart';
+import 'package:market_pet/controler/utils.dart';
+import 'package:market_pet/models/product.dart';
+import 'package:market_pet/pages/carrinho_page.dart';
+import 'package:market_pet/pages/manutencao_page.dart';
+import 'package:market_pet/pages/product_page.dart';
 import 'package:market_pet/widgets/card_produto.dart';
 import 'package:scrollable_list_tabview/scrollable_list_tabview.dart';
 
 
 class LojaHome extends StatefulWidget {
-  LojaHome({this.carrinhoCount = 0, this.nomeLoja = "PetTop", this.descricaoLoja = "Banho, Tosa e Acessórios", this. logoUrl = '', this.contato = '-'});
+  LojaHome({this.nomeLoja = "PetTop", this.descricaoLoja = "Banho, Tosa e Acessórios", this. logoUrl = '', this.contato = '-'});
   String nomeLoja, descricaoLoja, logoUrl, contato = '-';
-  int carrinhoCount;
   @override
   _LojaHomeState createState() => _LojaHomeState();
 }
@@ -22,10 +26,12 @@ class _LojaHomeState extends State<LojaHome> {
   sizeWidth(context, {percentSize = 0}) => MediaQuery.of(context).size.width * (percentSize > 0 ? percentSize/100 : 1);
   sizeHeight(context, {percentSize = 0}) => MediaQuery.of(context).size.height * (percentSize > 0 ? percentSize/100 : 1);
 
+  List<Product> carrinho = [];
   var isFavorite = false;
 
   initState(){
     ThemeData(cardTheme: CardTheme(color: Colors.cyanAccent));
+    carrinho = ControllerCarrinho.list;
   }
 
 
@@ -71,22 +77,25 @@ class _LojaHomeState extends State<LojaHome> {
                   listas(),
                 ]
             )),
-            if(widget.carrinhoCount > 0) Container(color: AppConfig.vermelhoIcone, height: sizeHeight(context,percentSize: 7),
-              child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                Badge(
-                  position: BadgePosition.topEnd(top: -2, end: 0),
-                  badgeContent: Text('${widget.carrinhoCount}', style: TextStyle(color: Colors.white,fontFamily: "Quicksand", fontWeight: FontWeight.w600)),
-                  child: IconButton(
-                    splashRadius: 18,
-                    icon: Icon(Icons.shopping_cart_outlined, color: Colors.white, size: 23),
-                    tooltip: 'Carrinho',
-                    onPressed: () {},
-                  )
-                ),
+            if(ControllerCarrinho.getTotalItens() > 0) GestureDetector(onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => CarrinhoPage())),
+              child: Container(color: AppConfig.vermelhoIcone, height: sizeHeight(context,percentSize: 7),
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                  Badge(
+                      position: BadgePosition.topEnd(top: -2, end: 0),
+                      badgeContent: Text('${ControllerCarrinho.getTotalItens()}', style: TextStyle(color: Colors.white,fontFamily: "Quicksand", fontWeight: FontWeight.w600)),
+                      child: IconButton(
+                        splashRadius: 18,
+                        icon: Icon(Icons.shopping_cart_outlined, color: Colors.white, size: 23),
+                        tooltip: 'Carrinho',
+                        onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => ManutencaoPage()));},
+                      )
+                  ),
 
-                Text('Ver Carrinho', style: TextStyle(color: Colors.white,fontFamily: "Quicksand", fontWeight: FontWeight.w600)),
-                Text('77,01', style: TextStyle(color: Colors.white,fontFamily: "Quicksand", fontWeight: FontWeight.w600)),
-              ],),
+                  Text('Ver Carrinho', style: TextStyle(color: Colors.white,fontFamily: "Quicksand", fontWeight: FontWeight.w600)),
+                  Text('R\$ ${ControllerCarrinho.getTotalPrice()>0? (ControllerCarrinho.getTotalPrice()).toStringAsFixed(2).replaceAll('.', ','): '-'}',
+                      style: TextStyle(color: Colors.white,fontFamily: "Quicksand", fontWeight: FontWeight.w600)),
+                ],),
+              )
             )
           ],
         ),
@@ -201,10 +210,10 @@ class _LojaHomeState extends State<LojaHome> {
                 body: ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                  itemCount: 10,
+                  itemCount: Utils().listRacao.length,
                   itemBuilder: (_, index) => GestureDetector(
-                    onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
-                        child: CardProduto()
+                    onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listRacao.elementAt(index)))),
+                        child: CardProduto(product: Utils().listRacao.elementAt(index))
                     ),
                 )
             ),
@@ -216,10 +225,10 @@ class _LojaHomeState extends State<LojaHome> {
                 body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: 10,
+                    itemCount: Utils().listRacao.length,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
-                        child: CardProduto()
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listRacao.elementAt(index)))),
+                        child: CardProduto(product: Utils().listRacao.elementAt(index))
                     ),
                 )),
             ScrollableListTab(
@@ -230,10 +239,10 @@ class _LojaHomeState extends State<LojaHome> {
                 body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: 10,
+                    itemCount: Utils().listRacao.length,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
-                        child: CardProduto()
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listRacao.elementAt(index)))),
+                        child: CardProduto(product: Utils().listRacao.elementAt(index))
                     ),
                 )),
             ScrollableListTab(
@@ -244,10 +253,10 @@ class _LojaHomeState extends State<LojaHome> {
                 body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: 10,
+                    itemCount: Utils().listRacao.length,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
-                        child: CardProduto()
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listRacao.elementAt(index)))),
+                        child: CardProduto(product: Utils().listRacao.elementAt(index))
                     ),
                 )),
             ScrollableListTab(
@@ -258,10 +267,10 @@ class _LojaHomeState extends State<LojaHome> {
                 body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: 10,
+                    itemCount: Utils().listRacao.length,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
-                        child: CardProduto()
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listRacao.elementAt(index)))),
+                        child: CardProduto(product: Utils().listRacao.elementAt(index))
                     ),
                 )),
             ScrollableListTab(
@@ -272,10 +281,10 @@ class _LojaHomeState extends State<LojaHome> {
                 body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: 10,
+                    itemCount: Utils().listRacao.length,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Product())),
-                        child: CardProduto()
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listRacao.elementAt(index)))),
+                        child: CardProduto(product: Utils().listRacao.elementAt(index))
                     ),
                 )),
           ],

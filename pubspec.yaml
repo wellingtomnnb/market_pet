@@ -26,6 +26,7 @@ flutter:
   uses-material-design: true
   assets:
     - lib/assets/images/mascote.png
+    - lib/assets/images/dog_man.png
     - lib/assets/images/icon_product.png
     - lib/assets/images/icon_shop_profile.png
     - lib/assets/images/banner.jpg

@@ -2,23 +2,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:market_pet/controler/app_config.dart';
+import 'package:market_pet/controler/controller_carrinho.dart';
+import 'package:market_pet/models/product.dart';
 import 'package:market_pet/pages/home_loja.dart';
 
-class Product extends StatefulWidget {
+class ProductPage extends StatefulWidget {
+  ProductPage({required this.product});
+  Product product;
+
+
   @override
-  _ProductState createState() => _ProductState();
+  _ProductPageState createState() => _ProductPageState();
 }
 
-class _ProductState extends State<Product> {
+class _ProductPageState extends State<ProductPage> {
 
   sizeWidth({context, percentSize}) => MediaQuery.of(context).size.width * (percentSize > 0 ? percentSize/100 : 1);
   sizeHeight({context, percentSize}) => MediaQuery.of(context).size.height * (percentSize > 0 ? percentSize/100 : 1);
 
-  String prodDescription = 'Ideal para uma alimentação rápida depois de alguma atividade, o Queridinhos é fonte de'
-  ': \n- Atóxicos; \n- Vitaminas,\n- Minerais,\n-Rico em Carboidrato e Proteina B3 ';
-
-  var price = 58.81;
-  int _n = 0;
+  int _n = 1;
   void minus() {
     setState(() {
       if (_n != 0)
@@ -38,7 +40,7 @@ class _ProductState extends State<Product> {
         preferredSize: Size.fromHeight(40.0),
         child: AppBar(
           iconTheme: IconThemeData(color: AppConfig.cinzaTexto),
-          backgroundColor: AppConfig.cinzaBkg,
+          backgroundColor: Colors.white,// AppConfig.cinzaBkg,
           backwardsCompatibility: false,
           brightness: Brightness.dark,
           systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.grey),
@@ -47,7 +49,7 @@ class _ProductState extends State<Product> {
               splashRadius: 18,
               icon: Icon(Icons.arrow_back, color: Colors.grey, size: 25),
               tooltip: 'Voltar',
-              onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LojaHome(carrinhoCount: _n)))
+              onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LojaHome()))
           ),
           actions: [
             IconButton(
@@ -59,14 +61,14 @@ class _ProductState extends State<Product> {
           ],
         ),
       ),
-      body: Container(color: AppConfig.cinzaBkg,
+      body: Container(color: Colors.white,//AppConfig.cinzaBkg,
         child: Column(
           children: [
             Expanded(
                 child: Container(padding: EdgeInsets.all(10),//color: Colors.blue,
                   child: Container(
                     //color: Colors.redAccent,
-                    child:  Image.network('logoUrl', fit: BoxFit.cover,
+                    child:  Image.network('${widget.product.logoUrl}', fit: BoxFit.cover,
                         loadingBuilder:(context, child, ImageChunkEvent? loadingProgress) {
                           if(loadingProgress == null) return child;
                           return Center(child: CircularProgressIndicator());
@@ -93,7 +95,7 @@ class _ProductState extends State<Product> {
                 children: [
                   //TITTLE
                   Padding(padding: EdgeInsets.all(10),
-                    child: Text('Kit Queridinhos Petiscos Para Cães',
+                    child: Text(widget.product.title,
                         textAlign: TextAlign.center,
                         style: TextStyle(color: AppConfig.cinzaTexto,
                             fontSize: AppConfig.titleSize,
@@ -103,13 +105,13 @@ class _ProductState extends State<Product> {
                   ),
                   //DESCRIPTION
                   Padding(padding: EdgeInsets.only(left: 15, right: 15),
-                    child: Text(prodDescription,style: TextStyle(color: AppConfig.cinzaTexto, fontSize: AppConfig.subTitleSize, fontFamily: "Quicksand", fontWeight: FontWeight.w500),),
+                    child: Text(widget.product.describe,style: TextStyle(color: AppConfig.cinzaTexto, fontSize: AppConfig.subTitleSize, fontFamily: "Quicksand", fontWeight: FontWeight.w500),),
                   ),
                   //VALUE AND BUY
                   Padding(padding: EdgeInsets.only(bottom: 10, top: 20),
                     child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text('R\$ ${price>0? (price*_n).toStringAsFixed(2).replaceAll('.', ','): '-'}',
+                          Text('R\$ ${widget.product.price>0? (widget.product.price*_n).toStringAsFixed(2).replaceAll('.', ','): '-'}',
                               style: TextStyle(color: AppConfig.cinzaTexto,
                                   fontSize: AppConfig.titleSize,
                                   fontFamily: "Quicksand",
@@ -157,7 +159,11 @@ class _ProductState extends State<Product> {
                             iconSize: 24*1.3,
                             icon: Icon(Icons.add_shopping_cart, color: AppConfig.azulBtEntrar),
                             tooltip: 'Adicionar ao Carrinho',
-                            onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LojaHome(carrinhoCount: _n)))
+                            onPressed: () {
+                              widget.product.qtd = _n;
+                              ControllerCarrinho.list.add(widget.product);
+                              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>LojaHome()));
+                            }
                           ),
 
                         ]

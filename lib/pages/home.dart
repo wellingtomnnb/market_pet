@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:market_pet/controler/app_config.dart';
 import 'package:market_pet/models/fragments.dart';
+import 'package:market_pet/pages/manutencao_page.dart';
 import 'package:market_pet/pages/start_page.dart';
 import 'package:market_pet/widgets/home_fragments.dart';
 
@@ -49,7 +50,7 @@ class _HomeState extends State<Home> {
                       splashRadius: 20,
                       icon: Icon(Icons.search, size: 17),
                       tooltip: 'Pesquisar',
-                      onPressed: () {},
+                      onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => ManutencaoPage()));},
                     ),
                     suffixIcon:  IconButton(
                       splashRadius: 10,
@@ -69,7 +70,7 @@ class _HomeState extends State<Home> {
               IconButton(
                 icon: Icon(Icons.shopping_cart_outlined, color:  Colors.black54),
                 tooltip: 'Abrir carrinho',
-                onPressed: () {},
+                onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => ManutencaoPage()));},
               ),
             ],
             bottom: TabBar(
@@ -108,13 +109,13 @@ class _HomeState extends State<Home> {
                 ListTile(
                     leading: Icon(Icons.check_circle_outline),
                     title: Text("Configurações"),
-                    onTap: () {}
+                    onTap: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => ManutencaoPage()));}
                   // onTap: () =>Navigator.of(context).push(MaterialPageRoute(builder: (context) => VistoriasPage()))
                 ),
                 ListTile(
                     leading: Icon(Icons.info_outline),
                     title: Text("Sobre"),
-                    onTap: () {}
+                    onTap: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => ManutencaoPage()));}
                 ),
                 ListTile(
                     leading: Icon(Icons.power_settings_new),

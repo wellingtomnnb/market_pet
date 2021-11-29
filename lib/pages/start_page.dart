@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:market_pet/controler/app_config.dart';
 import 'package:market_pet/pages/home.dart';
 import 'package:market_pet/pages/login.dart';
+import 'package:market_pet/pages/manutencao_page.dart';
 
 class StartPage extends StatefulWidget {
   @override
@@ -111,7 +112,7 @@ class _StartPageState extends State<StartPage> {
                                       style: ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 20),
                                           elevation: 0, minimumSize: Size.fromRadius(25), primary: AppConfig.azulBtEntrar, onSurface: AppConfig.azulBtEntrar
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => ManutencaoPage()));},
                                       child: Text('Cadastre-se', style: TextStyle(fontSize: AppConfig.titleSize, fontFamily: "Quicksand", fontWeight: FontWeight.w500)),
                                     ),
                                   ),

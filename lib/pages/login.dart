@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:market_pet/controler/app_config.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:market_pet/pages/home.dart';
+import 'package:market_pet/pages/manutencao_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -101,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                     Buttons.Google,
                     text: 'Continuar com o Google',
                     //mini: true,
-                    onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home()))
+                    onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => ManutencaoPage()))
                   ),
                   SizedBox(height: 20),
                 ],
