@@ -210,10 +210,10 @@ class _LojaHomeState extends State<LojaHome> {
                 body: ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                  itemCount: Utils().listRacao.length,
+                  itemCount: Utils().listSnack.length,
                   itemBuilder: (_, index) => GestureDetector(
-                    onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listRacao.elementAt(index)))),
-                        child: CardProduto(product: Utils().listRacao.elementAt(index))
+                    onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listSnack.elementAt(index)))),
+                        child: CardProduto(product: Utils().listSnack.elementAt(index))
                     ),
                 )
             ),
@@ -239,10 +239,10 @@ class _LojaHomeState extends State<LojaHome> {
                 body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: Utils().listRacao.length,
+                    itemCount: Utils().listAcess.length,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listRacao.elementAt(index)))),
-                        child: CardProduto(product: Utils().listRacao.elementAt(index))
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listAcess.elementAt(index)))),
+                        child: CardProduto(product: Utils().listAcess.elementAt(index))
                     ),
                 )),
             ScrollableListTab(
@@ -253,10 +253,10 @@ class _LojaHomeState extends State<LojaHome> {
                 body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: Utils().listRacao.length,
+                    itemCount: Utils().listVest.length,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listRacao.elementAt(index)))),
-                        child: CardProduto(product: Utils().listRacao.elementAt(index))
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listVest.elementAt(index)))),
+                        child: CardProduto(product: Utils().listVest.elementAt(index))
                     ),
                 )),
             ScrollableListTab(
@@ -267,10 +267,10 @@ class _LojaHomeState extends State<LojaHome> {
                 body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: Utils().listRacao.length,
+                    itemCount: Utils().listBrinq.length,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listRacao.elementAt(index)))),
-                        child: CardProduto(product: Utils().listRacao.elementAt(index))
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listBrinq.elementAt(index)))),
+                        child: CardProduto(product: Utils().listBrinq.elementAt(index))
                     ),
                 )),
             ScrollableListTab(
@@ -281,10 +281,10 @@ class _LojaHomeState extends State<LojaHome> {
                 body: ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: Utils().listRacao.length,
+                    itemCount: Utils().listVitam.length,
                     itemBuilder: (_, index) => GestureDetector(
-                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listRacao.elementAt(index)))),
-                        child: CardProduto(product: Utils().listRacao.elementAt(index))
+                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProductPage(product: Utils().listVitam.elementAt(index)))),
+                        child: CardProduto(product: Utils().listVitam.elementAt(index))
                     ),
                 )),
           ],

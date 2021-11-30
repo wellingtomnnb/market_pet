@@ -29,7 +29,7 @@ Widget CardLoja({String name = 'Sem Nome', String describe = '', String reputati
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(name, style: TextStyle(fontSize: 16, fontFamily: "Quicksand", fontWeight: FontWeight.w600),),
-              Text(describe, style: TextStyle(fontSize: 11, fontFamily: "Quicksand", fontWeight: FontWeight.w600))
+              Text(describe, style: TextStyle(fontSize: 10, fontFamily: "Quicksand", fontWeight: FontWeight.w600))
             ]
           ),
           if(reputation.isNotEmpty) Expanded(

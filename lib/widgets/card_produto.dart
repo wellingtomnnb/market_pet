@@ -41,7 +41,7 @@ class _CardProdutoState extends State<CardProduto> {
   @override
   Widget build(BuildContext context) {
     return Card(
-        elevation: 0,
+        elevation: 0, margin: EdgeInsets.zero,
         color: Colors.white,
         child: Row(crossAxisAlignment: CrossAxisAlignment.start,
           children: [

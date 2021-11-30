@@ -7,7 +7,7 @@ class ManutencaoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: AppConfig.cianoLogo,
       appBar: PreferredSize(
       preferredSize: Size.fromHeight(40.0),
       child: AppBar(
@@ -40,7 +40,7 @@ class ManutencaoPage extends StatelessWidget {
                     ),
                     Container(
                       width: sizeWidth(context: context, percentSize: 100),
-                      height: sizeHeight(context: context, percentSize: 55) *  0.27,
+                      height: sizeHeight(context: context, percentSize: 55) *  0.15,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(topLeft: Radius.circular(55), topRight: Radius.circular(55))),
@@ -51,22 +51,15 @@ class ManutencaoPage extends StatelessWidget {
               Container(
                 width: sizeWidth(context: context, percentSize: 100),
                 height: sizeHeight(context: context, percentSize: 50),
-                child: Column(children: [
-                  SizedBox(height: 350, child: Image.asset(AppConfig.stringDogManutencao),)
-                ],),
+                child: Image.asset(AppConfig.stringDogManutencao),
               ),
               Container(
-                  width: sizeHeight(context: context, percentSize: 55) * 0.27,
+                  width: sizeHeight(context: context, percentSize: 55) * 0.25,
                   //height: sizeWidth(context: context, percentSize: 55) * 0.30,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(100)),
-                  child: Column(children: [
-                    Padding(padding: EdgeInsets.all(10),
-                        child: Image.asset(AppConfig.stringLogo)),
-                    SizedBox(height: 30,),
-
-                  ],)
+                  child: Padding(padding: EdgeInsets.all(10), child: Image.asset(AppConfig.stringLogo),)
               ),
             ],
           ),
@@ -80,7 +73,7 @@ class ManutencaoPage extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: AppConfig.cinzaTexto,
-                                fontSize: AppConfig.titleSize,
+                                fontSize: AppConfig.titleSize-5,
                                 fontFamily: "Quicksand",
                                 fontWeight: FontWeight.w400
                             ),

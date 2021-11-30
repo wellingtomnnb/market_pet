@@ -6,9 +6,9 @@ import 'package:market_pet/controler/app_config.dart';
 
 Widget BannerCarrosel(context, sizeWidth, sizeHeight){
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
-  var bannerUrl = 'https://staticpetz.stoom.com.br/fotos/Home_Desk_1900x390_Ganhe10OFF-unidade-Fortekor.gif';
-  var bannerUrl2 = 'https://staticpetz.stoom.com.br/fotos/Home_Desk_1900x390_Anivers%C3%A1rio_Album_2021_08.png';
-  var bannerUrl3 = 'https://petdays.vteximg.com.br/arquivos/ids/157860/banner_central_delivery_mobile.jpg?v=637514283619270000';
+  var bannerUrl = 'http://www.marechalfloriano.es.gov.br/wp-content/uploads/2020/08/CRONOGRAMA-vacinacao-antirrabica-corrigido-min-768x384.jpg';
+  var bannerUrl2 = 'http://www.marechalfloriano.es.gov.br/wp-content/uploads/2021/08/Campanha-de-Vacina%C3%A7%C3%A3o-Animal-2021-min.jpg';
+  var bannerUrl3 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGUEHzFYvnEwMv29VdqctCHZXzh7wHgH5-xw&usqp=CAU';
 
   banners() => [bannerUrl, bannerUrl2, bannerUrl3];
   final pages = List.generate(

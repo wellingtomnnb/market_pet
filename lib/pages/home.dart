@@ -17,8 +17,6 @@ class _HomeState extends State<Home> {
   sizeWidth({context, percentSize = 0}) => MediaQuery.of(context).size.width * (percentSize > 0 ? percentSize/100 : 1);
   sizeHeight({context, percentSize = 0}) => MediaQuery.of(context).size.height * (percentSize > 0 ? percentSize/100 : 1);
 
-  final List<String> _suggestions = ['Alligator', 'Buffalo', 'Chicken', 'Dog', 'Eagle', 'Frog'];
-
   var bannerUrl = 'https://staticpetz.stoom.com.br/fotos/Home_Desk_1900x390_Ganhe10OFF-unidade-Fortekor.gif';
   var bannerUrl2 = 'https://staticpetz.stoom.com.br/fotos/Home_Desk_1900x390_Anivers%C3%A1rio_Album_2021_08.png';
   var empytText = true;

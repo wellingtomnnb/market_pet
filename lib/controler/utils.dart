@@ -57,4 +57,169 @@ class Utils{
         logoUrl: 'https://staticpetz.stoom.com.br/fotos/1573072765749.jpg'
     )
   ];
+
+  List<Product> listAcess = [
+    Product(
+        title: 'Carrinho American Pets Baby Dog para Cães - Cores Sortidas',
+        describe: '-',
+        price: 729.87,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1623251733888.jpg'
+    ),
+    Product(
+        title: 'Peitoral Ferplast Agila Fluo Amarelo e Preto Para Cães',
+        describe: '-',
+        price: 129.29,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/10031110004148-1.jpg'
+    ),
+    Product(
+        title: 'Peitoral Zee.Dog Air Mesh Honey para Cães',
+        describe: '-',
+        price: 139.29,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1631111995746.jpg'
+    ),
+    Product(
+        title: 'Peitoral Zee.Dog Air Mesh Volt para Cães',
+        describe: '-',
+        price: 149.29,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1631113423689.jpg'
+    ),
+    Product(
+        title: 'Coleira Ferplast Club Colours Para Cães Roxo',
+        describe: '-',
+        price: 39.99,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/10031110004105-1.jpg'
+    ),
+  ];
+
+  List<Product> listSnack = [
+    Product(
+        title: 'Snack Purina Dentalife para Cães Raças Pequenas',
+        describe: '-',
+        price: 13.19,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1627398530276.jpg'
+    ),
+    Product(
+        title: 'Petisco Doguitos Rodízio para Cães Adultos e Filhotes Sabor Linguicinha - 45g',
+        describe: '-',
+        price: 4.99,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1627311931345.jpg'
+    ),
+    Product(
+        title: 'Biscoito Premier Cookie para Cães Adultos Sabor Frutas Vermelhas e Aveia 250g',
+        describe: '-',
+        price: 16.29,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1585001595109.jpg'
+    ),
+    Product(
+        title: 'Petisco Delicibife Gatos Adultos e Filhotes Atum e Salmão - 20g',
+        describe: '-',
+        price: 8.99,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1443032654129.jpg'
+    ),
+    Product(
+        title: 'Petisco Jack&Cat Skin Fish para Gatos 20g',
+        describe: '-',
+        price: 4.99,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1638211928401.jpg'
+    ),
+  ];
+
+  List<Product> listVest = [
+    Product(
+        title: 'Camiseta Piticas Dragon Ball Goku para Cães',
+        describe: '-',
+        price: 49.87,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1632152506794.jpg'
+    ),
+    Product(
+        title: 'Camiseta Zooz Pets Snoopy Charlie Sleep Amarela para Cães',
+        describe: '-',
+        price: 34.19,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/10031110004148-1.jpg'
+    ),
+    Product(
+        title: 'Camiseta Zooz Pets Snoopy Charlie Keep Calm para Cães',
+        describe: '-',
+        price: 33.49,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1547033260397.jpg'
+    ),
+    Product(
+        title: 'Macacão Bonito pra Cachorro Nó Unicórnio para Cães',
+        describe: '-',
+        price: 99.59,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1615213893926.jpg'
+    ),
+    Product(
+        title: 'Meia American Pets para Cães e Gatos Tamanho M',
+        describe: '-',
+        price: 42.99,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1623255561001.jpg'
+    ),
+  ];
+
+  List<Product> listBrinq = [
+    Product(
+        title: 'Mordedor Ossinho Petz com Som - Cores Sortidas',
+        describe: '-',
+        price: 61.87,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1633381038594.jpg'
+    ),
+    Product(
+        title: 'Brinquedo Chalesco para Cães Dental Bone Médio - Cores Sortidas',
+        describe: '-',
+        price: 11.19,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1606160818082.jpg'
+    ),
+    Product(
+        title: 'Brinquedo Napi Vara Bola Pompom para Gatos - Cores Sortidas',
+        describe: '-',
+        price: 33.49,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1600430346774.jpg'
+    ),
+    Product(
+        title: 'Brinquedo Petz Varinha para Gatos - Cores Sortidas',
+        describe: '-',
+        price: 29.59,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1608212150861.jpg'
+    ),
+    Product(
+        title: 'Brinquedo LCM Varinha Cat Fishing para Gatos',
+        describe: '-',
+        price: 19.99,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/20037080000042-1.jpg'
+    ),
+  ];
+
+  List<Product> listVitam = [
+    Product(
+        title: 'Procart Agener União 60 Comprimidos',
+        describe: '-',
+        price: 119.87,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1611861996766.jpg'
+    ),
+    Product(
+        title: 'Probiótico Pet Avert 14g',
+        describe: '-',
+        price: 30.19,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1499451619368.jpg'
+    ),
+    Product(
+        title: 'Condroplex 1000 Suplemento Avert',
+        describe: '-',
+        price: 120.49,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1555440023231.jpg'
+    ),
+    Product(
+        title: 'Seniox 1000mg Avert 30 Cápsulas',
+        describe: '-',
+        price: 185.59,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1447249809037.jpg'
+    ),
+    Product(
+        title: 'Queranon Avert para Cães e Gatos Small Size 30 Cápsulas',
+        describe: '-',
+        price: 51.99,
+        logoUrl: 'https://staticpetz.stoom.com.br/fotos/1541014867584.jpg'
+    ),
+  ];
 }
